@@ -32,7 +32,36 @@ function progressiveNum (squares) {
     }
 }
 
+function getRandomNumbersArray(range) {
+
+    numbersArray.length = 0;   //per resettare l'array
+
+    while (numbersArray.length < 16) {
+
+        const randomNumber = Math.floor(Math.random() * range) + 1;
+  
+        const newNumber = randomNumber;
+
+        //controllo se il numero appena generato è già presente dentro il nostro array
+        if( ! numbersArray.includes(newNumber) ) {
+
+            numbersArray.push(newNumber);
+
+        }
+    }
+    console.log(numbersArray);
+    return numbersArray;
+
+}
+
+function bombs() {
+
+    
+}
+
+
 const startBtn = document.querySelector("#start-btn");
+const numbersArray = [];
 
 startBtn.addEventListener("click", function() {
 
@@ -44,14 +73,17 @@ startBtn.addEventListener("click", function() {
     if (userChoice == "easy") {
 
         progressiveNum (100);
+        getRandomNumbersArray (100);
 
     } else if (userChoice == "medium") {
 
         progressiveNum (81);
+        getRandomNumbersArray (81);
 
     } else if (userChoice == "hard") {
 
         progressiveNum (49);
+        getRandomNumbersArray (49);
 
     }
 }
