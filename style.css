@@ -118,6 +118,7 @@ h1 {
 
 .activated {
     background-color: red;
+    color: black;
 }
 
 .easy {

@@ -35,7 +35,6 @@ function progressiveNum (squares) {
             }
 
             this.classList.add("active");
-            console.log(pointsCounter);
               
 
             if (this.classList.contains("bomb")) {
@@ -43,7 +42,15 @@ function progressiveNum (squares) {
                 this.classList.add("activated");
                 pointsCounter--;
                 console.log(pointsCounter);
-                
+
+                // questo comando richiamera ogni elemento del documento con classe "bomb",
+                // successivamente il parametro bomb rappresenterà l'elemento corrente chiamato da
+                // forEach, aggiungendogli poi la classe activated
+                document.querySelectorAll('.bomb').forEach(function(bomb) {
+                    bomb.classList.add('activated');
+                });
+                // -------------------------------------------------------------------------------
+
                 document.getElementById("result").append(`Partita finita! Il tuo punteggio è di ${pointsCounter}`);
                 
                 pointsCounter = 0; 
