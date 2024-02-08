@@ -5,7 +5,7 @@ function progressiveNum (squares) {
         const newElement = document.createElement("div");
         newElement.innerText = (i + 1);
         document.querySelector(".map-container").append(newElement);
-        newElement.classList.add("square"); 
+        newElement.classList.add("square");
         
         if(numbersArray.includes(i + 1)) {
             newElement.classList.add("bomb"); 
@@ -29,15 +29,27 @@ function progressiveNum (squares) {
 
             // this si riferisce a newElement
             console.log(this.innerText);
-            this.classList.add("active");  
+
+            if ( ! this.classList.contains("active")) {
+                pointsCounter++;
+            }
+
+            this.classList.add("active");
+            console.log(pointsCounter);
+              
 
             if (this.classList.contains("bomb")) {
-            this.style.backgroundColor = "red";
-            console.log("si");
-        }
 
+                this.classList.add("activated");
+                pointsCounter--;
+                console.log(pointsCounter);
+                
+                document.getElementById("result").append(`Partita finita! Il tuo punteggio è di ${pointsCounter}`);
+                
+                pointsCounter = 0; 
 
             }
+            }            
         )
     }
 }
@@ -48,7 +60,7 @@ function getRandomNumbersArray(range) {
 
     while (numbersArray.length < 16) {
 
-        const randomNumber = Math.floor(Math.random() * range) + 1;
+        const randomNumber = Math.floor(Math.random() * range + 1);
   
         const newNumber = randomNumber;
 
@@ -64,9 +76,13 @@ function getRandomNumbersArray(range) {
 
 }
 
-const startBtn = document.querySelector("#start-btn");
-const numbersArray = [];
 
+
+
+const startBtn = document.querySelector("#start-btn");
+const container = document.getElementsByClassName("map-container");
+const numbersArray = [];
+let pointsCounter = 0; 
 
 
 
@@ -74,6 +90,7 @@ const numbersArray = [];
 startBtn.addEventListener("click", function() {
 
     document.querySelector(".map-container").innerHTML = '';   //Per svuotare la pagina corrente al click
+    document.getElementById("result").innerHTML = '';
 
     const userChoice = document.querySelector("#difficult-select").value
     console.log(userChoice);
@@ -96,3 +113,4 @@ startBtn.addEventListener("click", function() {
     }
 }
 )
+

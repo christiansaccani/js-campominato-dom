@@ -116,6 +116,10 @@ h1 {
     transition: .25s all;
 }
 
+.activated {
+    background-color: red;
+}
+
 .easy {
     width: calc(42vw / 10);
     height: calc(42vw / 10);
