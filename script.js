@@ -31,6 +31,12 @@ function progressiveNum (squares) {
             console.log(this.innerText);
             this.classList.add("active");  
 
+            if (this.classList.contains("bomb")) {
+            this.style.backgroundColor = "red";
+            console.log("si");
+        }
+
+
             }
         )
     }
