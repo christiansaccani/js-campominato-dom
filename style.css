@@ -121,6 +121,10 @@ h1 {
     color: black;
 }
 
+.off {
+    pointer-events: none;
+}
+
 .easy {
     width: calc(42vw / 10);
     height: calc(42vw / 10);

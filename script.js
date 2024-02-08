@@ -46,16 +46,34 @@ function progressiveNum (squares) {
                 // questo comando richiamera ogni elemento del documento con classe "bomb",
                 // successivamente il parametro bomb rappresenterà l'elemento corrente chiamato da
                 // forEach, aggiungendogli poi la classe activated
-                document.querySelectorAll('.bomb').forEach(function(bomb) {
-                    bomb.classList.add('activated');
+                document.querySelectorAll('.bomb').forEach(function(activated) {
+                    activated.classList.add('activated');
                 });
                 // -------------------------------------------------------------------------------
+
+                document.querySelectorAll('.square').forEach(function(off) {
+                    off.classList.add('off');
+
+                })
+
+
 
                 document.getElementById("result").append(`Partita finita! Il tuo punteggio è di ${pointsCounter}`);
                 
                 pointsCounter = 0; 
 
             }
+
+            if (pointsCounter == (squares - 16)) {
+                document.getElementById("result").append(`Sei riuscito a completare il gioco! Il tuo punteggio è di ${pointsCounter}`);
+
+                document.querySelectorAll('.bomb').forEach(function(activated) {
+                    activated.classList.add('activated');
+                });
+                
+            }
+
+
             }            
         )
     }
