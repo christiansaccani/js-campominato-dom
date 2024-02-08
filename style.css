@@ -110,6 +110,11 @@ h1 {
     color: black;
 }
 
+.bomb {
+    background-color: rgb(224, 224, 118);
+    color: black;
+}
+
 .easy {
     width: calc(42vw / 10);
     height: calc(42vw / 10);

@@ -5,11 +5,15 @@ function progressiveNum (squares) {
         const newElement = document.createElement("div");
         newElement.innerText = (i + 1);
         document.querySelector(".map-container").append(newElement);
-        newElement.classList.add("square");  
+        newElement.classList.add("square"); 
+        
+        if(numbersArray.includes(i + 1)) {
+            newElement.classList.add("bomb"); 
+        } 
 
         if (squares == 100) {
 
-            newElement.classList.add("easy");        
+            newElement.classList.add("easy");     
             
         } else if (squares == 81) {
 
@@ -54,14 +58,12 @@ function getRandomNumbersArray(range) {
 
 }
 
-function bombs() {
-
-    
-}
-
-
 const startBtn = document.querySelector("#start-btn");
 const numbersArray = [];
+
+
+
+
 
 startBtn.addEventListener("click", function() {
 
@@ -72,18 +74,18 @@ startBtn.addEventListener("click", function() {
 
     if (userChoice == "easy") {
 
-        progressiveNum (100);
         getRandomNumbersArray (100);
+        progressiveNum (100);
 
     } else if (userChoice == "medium") {
 
-        progressiveNum (81);
         getRandomNumbersArray (81);
+        progressiveNum (81);
 
     } else if (userChoice == "hard") {
 
-        progressiveNum (49);
         getRandomNumbersArray (49);
+        progressiveNum (49);
 
     }
 }
