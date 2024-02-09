@@ -56,8 +56,6 @@ function progressiveNum (squares) {
 
                 })
 
-
-
                 document.getElementById("result").append(`Partita finita! Il tuo punteggio è di ${pointsCounter}`);
                 
                 pointsCounter = 0; 
@@ -69,21 +67,17 @@ function progressiveNum (squares) {
 
                 document.querySelectorAll('.bomb').forEach(function(activated) {
                     activated.classList.add('activated');
-                });
-                
+                });             
             }
-
-
-            }            
-        )
+        });
     }
 }
 
-function getRandomNumbersArray(range) {
+function getRandomNumbersArray(length, range) {
 
     numbersArray.length = 0;   //per resettare l'array
 
-    while (numbersArray.length < 16) {
+    while (numbersArray.length < length) {
 
         const randomNumber = Math.floor(Math.random() * range + 1);
   
@@ -101,16 +95,10 @@ function getRandomNumbersArray(range) {
 
 }
 
-
-
-
 const startBtn = document.querySelector("#start-btn");
 const container = document.getElementsByClassName("map-container");
 const numbersArray = [];
 let pointsCounter = 0; 
-
-
-
 
 startBtn.addEventListener("click", function() {
 
@@ -122,20 +110,19 @@ startBtn.addEventListener("click", function() {
 
     if (userChoice == "easy") {
 
-        getRandomNumbersArray (100);
+        getRandomNumbersArray (16, 100);
         progressiveNum (100);
 
     } else if (userChoice == "medium") {
 
-        getRandomNumbersArray (81);
+        getRandomNumbersArray (16, 81);
         progressiveNum (81);
 
     } else if (userChoice == "hard") {
 
-        getRandomNumbersArray (49);
+        getRandomNumbersArray (16, 49);
         progressiveNum (49);
 
     }
 }
 )
-
